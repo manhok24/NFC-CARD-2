@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Send to Anh Mặt Nhăn ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Be Vietnam Pro',sans-serif;
+overflow-x:hidden;
+background:#111;
+color:white;
+}
+
+.bg{
+position:fixed;
+inset:0;
+background:url('anh-mat-nhan.jpg') center center/cover;
+filter:blur(12px) brightness(.35);
+z-index:-2;
+}
+
+.overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.25);
+z-index:-1;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.card{
+max-width:850px;
+width:100%;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(35px);
+border:1px solid rgba(255,255,255,.18);
+border-radius:35px;
+padding:40px;
+text-align:center;
+box-shadow:
+0 20px 60px rgba(0,0,0,.45),
+0 0 40px rgba(255,255,255,.08);
+transition:.5s;
+}
+
+.avatar{
+width:240px;
+height:240px;
+object-fit:cover;
+border-radius:24px;
+margin-bottom:25px;
+border:3px solid rgba(255,255,255,.2);
+animation:float 5s ease infinite;
+transition:.5s;
+}
+
+.avatar:hover{
+transform:scale(1.05);
+}
+
+@keyframes float{
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+}
+
+.sub{
+font-size:1.15rem;
+line-height:1.8;
+opacity:.95;
+}
+
+.btn{
+
+margin-top:30px;
+
+background:linear-gradient(135deg,#ff4d88,#ff7aa8);
+
+padding:16px 40px;
+
+border-radius:999px;
+
+font-size:18px;
+
+font-weight:bold;
+
+box-shadow:0 10px 25px rgba(255,70,130,.45);
+
+transition:.35s;
+
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+.hidden{
+display:none;
+margin-top:35px;
+animation:fade .8s;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.letter{
+text-align:left;
+line-height:2;
+margin-top:20px;
+background:rgba(255,255,255,.08);
+padding:25px;
+border-radius:20px;
+}
+
+.quote{
+margin-top:25px;
+font-size:1.2rem;
+font-weight:700;
+text-align:center;
+}
+
+.footer{
+margin-top:25px;
+font-size:.95rem;
+opacity:.8;
+text-align:center;
+}
+
+.heart{
+position:fixed;
+top:-10px;
+pointer-events:none;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+.music{
+display:none;
+}
+#loader{
+position:fixed;
+inset:0;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
+transition:1s;
+}
+
+.loader-logo{
+
+font-size:90px;
+
+animation:pulse 1.5s infinite;
+}
+
+.loader-text{
+
+margin-top:20px;
+
+letter-spacing:3px;
+
+font-size:20px;
+
+opacity:.8;
+}
+
+.loading-bar{
+
+width:220px;
+
+height:6px;
+
+background:#444;
+
+border-radius:50px;
+
+margin-top:40px;
+
+overflow:hidden;
+}
+
+.loading-progress{
+
+width:0;
+
+height:100%;
+
+background:white;
+
+animation:loading 2.5s forwards;
+}
+
+@keyframes loading{
+
+100%{
+
+width:100%;
+
+}
+
+}
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.2);
+
+}
+
+}
+#bgCanvas{
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    pointer-events: none;
+}
+h1{
+    font-size:3.3rem;
+    margin-bottom:15px;
+    background:linear-gradient(90deg,#ffffff,#ff7cae,#ffffff);
+    background-size:200%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:shine 5s linear infinite;
+}
+
+@keyframes shine{
+    from{
+        background-position:0%;
+    }
+    to{
+        background-position:200%;
+    }
+}
+@keyframes shine{
+
+100%{
+
+background-position:200%;
+
+}
+
+}
+</style>
+</head>
+
+<body>
+    <div id="loader">
+    <div class="loader-logo">❤️</div>
+    <div class="loader-text">
+        Chờ bé đơ đơ loaad xíu nhe...
+    </div>
+
+    <div class="loading-bar">
+        <div class="loading-progress"></div>
+    </div>
+</div>
+<canvas id="bgCanvas"></canvas>
+<div class="bg"></div>
+<div class="overlay"></div>
+
+<div class="hero">
+
+<div class="card">
+
+<img src="anh-mat-nhan.jpg" class="avatar">
+
+<h1>😘 Send to Anh Mặt Nhăn 🙈</h1>
+
+<p class="sub">
+Không phải ngày đặc biệt.<br>
+Không phải sinh nhật.<br>
+Không phải lễ gì cả.<br><br>
+
+Em chỉ muốn dành tặng miếng tình cảm trẻ con nhỏ bé của em cho anh hoi!
+<br><br>
+Anh ơi 😑
+</p>
+
+<button class="btn" onclick="openLetter()">
+Anh bấm vào đây nha
+</button>
+
+<div class="hidden" id="letter">
+
+<div class="letter">
+
+<p>
+Hilu Anh Mặt Nhăn hong phải của riêng em 😑
+</p>
+
+<br>
+
+<p>
+Nếu anh đang đọc được những dòng này thì chắc là anh đã quét chiếc NFC nhỏ mà em tự code tự nfc dành cho anh.
+</p>
+
+<p>
+Em muốn nói rằng em thương anh nhiều lắmmmm.E và anh cũng nói chuyện,quen cũng được hơn tháng rồi.Trong thời gian đấy có nhiều cảm xúc zui buồn lộn xộn luôn.Nhưng zui nhất là anh lên Hà Nội để gặp em mặc dù sau lần gặp ấy anh chẳng còn để tâm đến em nhiều nữa.Nhưng sau hôm đó e lại đã có tình cảm với anh không phải vì anh có thứ gì cả chỉ là vì a đặc biệt đối với em vậy thôi.
+Sau hôm đó a thất vọng nhiều về em,em biết em thấy có lỗi lắm và cũng 1 phần e thấy được tương tác của anh với những người anh quan tâm đến hầu như toàn là những bạn,anh trắng,xinh xắn,cute,vibe chuẩn bot.Nhìn lại e thấy tự ti nhiều hơn về bản thân e là bot nhưng e lại không có vibe của bot e cứng cỏi thô ráp vì làm kĩ thuật nhiều,em không có 1 gương mặt ưa nhìn,cái chuyện đó cũng không giỏi lắm vì em cũng vẫn còn ngại ngùng vì với em có trong giới nào thì mình cũng phải đi từ cái này sang cái kia nó mới bền được.E luôn giữ quan điểm đó không phải vì em không có nhu cầu hay khác e chỉ muốn mình sẽ dành nhiều nhất với người mình sẽ yêu thôi,e không dịu dàng hay suy nghĩ linh tinh làm tiêu cực đến anh nên em cũng cố không phiền anh nữa nhưng trong một vài khoảnh khắc e đã không làm được và lại lè nhè với anh như anh nói e là "hèn" đó em biết rõ lắm em hèn đoạn đó rồi nhưng em thương anh thật mà,em không muốn vì 1 số chuyện nhỏ mình chưa từng nói và chia sẻ với nhau lại đánh mất mối quan hệ này.Sau lần anh với e cãi nhau vì e hành động thiếu suy nghĩ và gửi anh cái video tiktok của anh ấy.Em đã dành cả đêm suy nghĩ và e cũng đâu có vị trí nào cụ thể đâu mà em hỏi với tò mò về những thứ đó sau đêm đó những lúc nói chuyện lại với anh em đã không còn suy diễn để gây ra tiêu cực cho anh nữa.Và thái độ của anh cũng đã khác hơn so với lúc đầu mình quen nhau anh không còn cần biết em làm gì hay đang thế nào nữa em cũng buồn nhiều nhưng mà biết sao được em chỉ muốn anh biết em thương anh thế nào ,mà thôi.E không quan trọng bản thân anh và em là top hay bot vì cái đó chỉ để phân biệt trên giường thôi khi đã là tình cảm con trai dành cho nhau thì ai chả muốn được yêu thương cả 2 nên được trân trọng chứ không phải là ai phải xuống nước trước hay không cả.Nhiều ngày e muốn hỏi anh lắm anh đang làm gì,anh đi đâu,anh ăn chưa nhưng e không can đảm vì e biết anh cố không muốn thấy em nữa rồi.Nhưng mà sau đó e vẫn tư mình qua gặp anh lần 1 lần 2 nhưng mình vẫn rất ổn mà đúng không hay với ai anh cũng thế vì lúc mới quen anh có nói anh tìm gì cũng được,chỉ có cứ về nhà là anh lại như bị khác đi vậy.Nếu chúng mình nghiêm túc hơn anh có một lời nói gì đó e chắc chắn e sẽ không làm anh phải tiêu cực vì e,e sẽ không hành động trẻ con nữa.Chắc là anh cũng biết em trân trọng mqh này rất nhiều,e thật lòng đó về anh thì em chưa rõ nữa.E biết là anh cố tình phớt lờ đi vì không thích.Nhưng anh cứ định 1 lần nhiều người thay vì một người nhiều lần mãi sao,anh không khao khát thứ gì đó lớn hơn hả anh.Em thật sự thật sự là rất thương anh lớn áhhhh.
+
+<p>
+Con Anger anh đang ôm nhìn giống anh lắm luon á .
+</p>
+
+<p>
+Hay cau có.
+<br>
+Hay mặt nhăn.
+<br>
+Hay làm mặt khó tính.
+</p>
+
+<p>
+Nhưng lại đáng yêu một cách rất khó hiểu.
+</p>
+
+<p>
+Có những người xuất hiện rồi lại biến mất.Nhưng có những người xuất hiện và khiến những ngày bình thường trở nên dễ chịu hơn.
+</p>
+
+<p>
+Em không biết tương lai sẽ thế nào.
+</p>
+
+<p>
+Nhưng hiện tại...
+</p>
+
+<p>
+Em rất vui vì có anh ở đây.
+</p>
+
+<p>
+Cảm ơn vì đã xuất hiện.
+<br>
+Cảm ơn vì đã lắng nghe.
+<br>
+Mạnh thương anh x1000000000000000000
+</p>
+
+</div>
+
+<div class="quote">
+👀 Chúng ta không ai phải hoàn hảo cả,chỉ khi vì nhau mình mới trở nên hoàn hảo,
+em rất muốn anh là người đồng hành của em trong hành trình của em.
+</div>
+
+<div class="footer">
+Anh nhăn ít thôi nha.<br>
+Vì cuộc đời ngắn lắm hihihihihihih.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+function typing(text,id){
+
+let i=0;
+
+const el=document.getElementById(id);
+
+el.innerHTML="";
+
+const timer=setInterval(()=>{
+
+el.innerHTML+=text.charAt(i);
+
+i++;
+
+if(i>=text.length){
+
+clearInterval(timer);
+
+}
+
+},25);
+
+}
+function openLetter(){
+document.getElementById('letter').style.display='block';
+document.getElementById('music').play();
+}
+
+function heart(){
+
+const h=document.createElement('div');
+
+h.innerHTML='❤️';
+
+h.className='heart';
+
+h.style.left=Math.random()*100+'vw';
+
+h.style.fontSize=(15+Math.random()*20)+'px';
+
+h.style.animationDuration=(4+Math.random()*5)+'s';
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+h.remove();
+},9000);
+
+}
+
+setInterval(heart,700);
+
+document.addEventListener("click",()=>{
+
+for(let i=0;i<25;i++){
+
+heart();
+
+}
+
+});
+window.onload=()=>{
+
+setTimeout(()=>{
+
+loader.style.opacity=0;
+
+setTimeout(()=>{
+
+loader.remove();
+
+},1000);
+
+},2500);
+
+}
+</script>
+<audio id="music" loop>
+    <source src="nguoi-dong-hanh.mp3" type="audio/mpeg">
+</audio>
+</body>
+</html>
